@@ -49,7 +49,7 @@ python cliente.py
 
 ## Demo
 
-![Chat en funcionamiento](demo.png)(demo2.png)
+![Chat en funcionamiento](demo.png)![Chat en funcionamiento](demo2.png)
 
 ---
 
