@@ -29,12 +29,27 @@ Aplicación de chat en red desarrollada en Python utilizando **sockets TCP** y *
 python servidor.py
 ```
 
-### Cliente (mismo PC o red local)
+### Cliente (mismo PC)
 ```bash
 python cliente.py
 ```
-> El cliente se conecta a `10.3.66.21:9999` por defecto.  
-> Para conectarse desde otro PC, editá `HOST` en `cliente.py` con la IP del servidor.
+
+### Cliente (desde otro PC en la red)
+Editá la variable `HOST` en `cliente.py` con la IP real del servidor:
+```python
+HOST = "10.3.66.21"  # Ejemplo: IP del servidor en la red local
+```
+Luego ejecutá:
+```bash
+python cliente.py
+```
+> Para obtener la IP del servidor en Windows ejecutá `ipconfig` en cmd y buscá la dirección IPv4 de tu adaptador de red.
+
+---
+
+## Demo
+
+![Chat en funcionamiento](demo.png)
 
 ---
 
@@ -59,7 +74,7 @@ python cliente.py
 
 ## Observaciones
 
-- En entorno **WSL**, la IP de la interfaz de red cambia entre reinicios. Usar `0.0.0.0` en el `bind` del servidor y `127.0.0.1` en el cliente es la práctica correcta para evitar errores de conexión.
+- Se recomienda usar `0.0.0.0` en el `bind` del servidor para escuchar en todas las interfaces disponibles. El cliente debe apuntar a `127.0.0.1` para conexiones locales o a la IP real del servidor para conexiones desde otra máquina en la red.
 
 - La opción **`SO_REUSEADDR`** en el socket del servidor es indispensable durante el desarrollo: sin ella, reiniciar el servidor dentro del tiempo de espera TCP (`TIME_WAIT`) arroja `Address already in use`.
 
