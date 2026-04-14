@@ -33,7 +33,7 @@ python servidor.py
 ```bash
 python cliente.py
 ```
-> El cliente se conecta a `127.0.0.1:9999` por defecto.  
+> El cliente se conecta a `10.3.66.21:9999` por defecto.  
 > Para conectarse desde otro PC, editá `HOST` en `cliente.py` con la IP del servidor.
 
 ---
